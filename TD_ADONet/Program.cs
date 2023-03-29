@@ -41,7 +41,7 @@ namespace TD_ADONet
             try
             {
                 String csMysql = String.Format("Server = {0}; Port = {1}; Database = {2}; " +
-                    "Uid = {3}" + "Pwd = {4}", hostMysql, portMysql, baseMysql, uidMysql, pwdMysql);
+                    "Uid = {3};"+ "Pwd = {4}", hostMysql, portMysql, baseMysql, uidMysql, pwdMysql);
                 MySqlConnection cnMysql = new MySqlConnection(csMysql);
                 cnMysql.Open();
                 Console.WriteLine("connecté Mysql");
