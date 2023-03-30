@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using EmployeDatas.Oracle;
+using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,7 @@ namespace TD_ADONet
             string pwd = "sio";
             try
             {
-                String cs = String.Format("Data Source= " + 
-                    "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {0})(PORT = {1}))" +
-                    "(CONNECT_DATA = (SERVICE_NAME = {2}))); User Id = {3}; Password = {4};", host, port, sid, login, pwd);
-                OracleConnection cnOracle = new OracleConnection(cs);
-                cnOracle.Open();
-                Console.WriteLine("Connecté Oracle");
-                cnOracle.Close();
-                Console.WriteLine("Déconnecté Oracle");
+                EmployeOracle empOracle = new EmployeOracle(host, port, sid, login, pwd);
             }
             catch(OracleException ex)
             {

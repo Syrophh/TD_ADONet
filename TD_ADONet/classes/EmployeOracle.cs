@@ -35,5 +35,28 @@ namespace EmployeDatas.Oracle
         {
             this.connexion.Close();
         }
+
+        public void afficherTousLesCours()
+        {
+            string requete = "select * from cours";
+            try
+            {
+                Ouvrir();
+                OracleCommand commande = new OracleCommand(requete, this.connexion);
+                var unReader = commande.ExecuteReader();
+                while (unReader.Read())
+                {
+                    String numCours = unReader.GetString(0);
+                    String libelleCours = unReader.GetString(1);
+                    int nbJours = unReader.GetInt32(2);
+                    Console.WriteLine("Numéro du cours = : {0}\n Libellé du cours : {1}\n Nombre de jours : {2}", numCours);
+                }
+                Fermer();
+            }
+            catch(OracleException ex)
+            {
+                Console.WriteLine("Erreur Oracle " + ex.Message);
+            }
+        }
     }
 }
