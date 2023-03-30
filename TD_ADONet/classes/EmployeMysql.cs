@@ -23,6 +23,17 @@ namespace EmployeDatas.Oracle
             this.db = db;
             this.login = login;
             this.pwd = pwd;
+            this.connexion = new MySqlConnection($"Server = {host}; Port = {port}; Database = {db}; Uid = {login}; Pwd = {pwd};");
+        }
+
+        public void Ouvrir()
+        {
+            this.connexion.Open();
+        }
+
+        public void Fermer()
+        {
+            this.connexion.Close();
         }
     }
 }

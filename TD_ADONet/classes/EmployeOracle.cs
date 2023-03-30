@@ -25,5 +25,15 @@ namespace EmployeDatas.Oracle
             this.pwd = pwd;
             this.connexion = new OracleConnection($"SERVER=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={host})(PORT={port}))(CONNECT_DATA=(SERVICE_NAME=MyOracleSID)));uid={login};pwd={pwd};");
         }
+
+        public void Ouvrir()
+        {
+            this.connexion.Open();
+        }
+
+        public void Fermer()
+        {
+            this.connexion.Close();
+        }
     }
 }
