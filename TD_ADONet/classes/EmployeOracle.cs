@@ -175,5 +175,15 @@ namespace EmployeDatas.Oracle
                 Console.WriteLine("Erreur Oracle " + ex.Message);
             }
         }
+
+        public static void insereCours(EmployeOracle employeOracle, string codeCours, string libelleCours, int nbJours)
+        {
+            string requete = "insert into cours (codecours, libellecours, nbjours) values('BR099', 'Apprentissage', 4)";
+            try
+            {
+                OracleCommand commande = new OracleCommand(requete, employeOracle.connexion);
+
+            }
+        }
     }
 }
